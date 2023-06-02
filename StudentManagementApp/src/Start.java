@@ -17,8 +17,9 @@ public class Start {
 			System.out.println();
 			System.out.println("Press 1 to ADD student");
 			System.out.println("Press 2 to DELETE student");
-			System.out.println("Press 3 to DISPLAY studentS");
-			System.out.println("Press 4 to EXIT app");
+			System.out.println("Press 3 to DISPLAY students");
+			System.out.println("Press 4 to UPDATE student");
+			System.out.println("Press 5 to EXIT app");
 			
 			int choice = Integer.parseInt(br.readLine());
 			
@@ -63,6 +64,20 @@ public class Start {
 				
 			}
 			else if(choice==4) {
+				// Update name 
+				System.out.println("Enter student id");
+				int id = Integer.parseInt(br.readLine());
+				
+				System.out.println("Enter student name to update ");
+				
+				String name = br.readLine();
+				
+				boolean check = StudentDao.updateStudent(name, id);
+				
+				if(check) System.out.println("Student updated successfully");
+				else System.out.println("Something went wrong!");
+			}
+			else if(choice==5) {
 				// Exit
 				break;
 			}
